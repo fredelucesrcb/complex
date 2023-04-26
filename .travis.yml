@@ -14,7 +14,7 @@ after_success:
   - docker build -t rcbfredeluces/complexserver ./server
   - docker build -t rcbfredeluces/complexworker ./worker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push rcbfredeluces/complexclient:latest
-  - docker push rcbfredeluces/complexnginx:latest
-  - docker push rcbfredeluces/complexserver:latest
-  - docker push rcbfredeluces/complexworker:latest
+  - docker push rcbfredeluces/complexclient
+  - docker push rcbfredeluces/complexnginx
+  - docker push rcbfredeluces/complexserver
+  - docker push rcbfredeluces/complexworker
