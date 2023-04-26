@@ -13,7 +13,7 @@ after_success:
   - docker build -t rcbfredeluces/complexnginx:latest ./nginx
   - docker build -t rcbfredeluces/complexserver:latest ./server
   - docker build -t rcbfredeluces/complexworker:latest ./worker
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" docker.io
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin docker.io
   - docker push rcbfredeluces/complexclient:latest
   - docker push rcbfredeluces/complexnginx:latest
   - docker push rcbfredeluces/complexserver:latest
