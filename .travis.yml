@@ -15,9 +15,9 @@ after_success:
   - docker build -t rcbfredeluces/complex/worker ./worker
 
 # login to  the docker CLI
-  - docker login -e=$DOCKER_EMAIL -u=$DOCKER_ID -p=$DOCKER_PASSWORD
+  - docker login -u "$DOCKER_USER" -p "$DOCKER_PASSWORD"
 # take images and push into dockerhub
-  - docker push rcbfredeluces/complex-client
-  - docker push rcbfredeluces/complex-nginx
-  - docker push rcbfredeluces/complex-server
-  - docker push rcbfredeluces/complex-worker
+  - docker push rcbfredeluces/complex-client:latest
+  - docker push rcbfredeluces/complex-nginx:latest
+  - docker push rcbfredeluces/complex-server:latest
+  - docker push rcbfredeluces/complex-worker:latest
