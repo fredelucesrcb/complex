@@ -20,4 +20,4 @@ after_success:
   - docker push rcbfredeluces/complex-client
   - docker push rcbfredeluces/complex-nginx
   - docker push rcbfredeluces/complex-server
-  - docker push rcbfredeluces/complex/worker
+  - docker push rcbfredeluces/complex-worker
