@@ -1,0 +1,23 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t rcbfredeluces/complex-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true rcbfredeluces/complex-test npm test -- --coverage
+
+after_success:
+  - docker build -t rcbfredeluces/complex-client ./client
+  - docker build -t rcbfredeluces/complex-nginx ./nginx
+  - docker build -t rcbfredeluces/complex-server ./server
+  - docker build -t rcbfredeluces/complex/worker ./worker
+
+# login to  the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+# take images and push into dockerhub
+  - docker push rcbfredeluces/complex-client
+  - docker push rcbfredeluces/complex-nginx
+  - docker push rcbfredeluces/complex-server
+  - docker push rcbfredeluces/complex/worker
