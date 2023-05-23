@@ -12,16 +12,16 @@ app.use(bodyParser.json());
 // Create and connect to Postgres
 const {Pool, Client} = require("pg");
 const pgClient = new Pool({
-    // user: keys.pgUser,
-    // host: keys.pgHost,
-    // database: keys.pgDatabase,
-    // password: keys.pgPassword,
-    // port: keys.pgPort
-    user: "postgres",
-    host: "postgres",
-    database: "postgres",
-    password: "postgres_password",
-    port: 5432
+    user: keys.pgUser,
+    host: keys.pgHost,
+    database: keys.pgDatabase,
+    password: keys.pgPassword,
+    port: keys.pgPort
+    // user: "postgres",
+    // host: "postgres",
+    // database: "postgres",
+    // password: "postgres_password",
+    // port: 5432
 });
 
 pgClient.on('error', () => console.log('Lost PG conn'));
