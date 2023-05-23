@@ -24,7 +24,7 @@
         },
         {
             "name": "nginx",
-            "image": "rcbfredeluces/complexworker",
+            "image": "rcbfredeluces/complexnginx",
             "hostname": "nginx",
             "essential": true,
             "memory": 128,
